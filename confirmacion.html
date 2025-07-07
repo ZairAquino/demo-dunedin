@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado - Dunedin</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="cart-page">
+    <header>
+        <nav class="nav-main">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="imgs/dunedin-logo-t.png" alt="Dunedin Logo" width="200" height="120">
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos...">
+                <button type="submit">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="nav-icons">
+                <a href="carrito.html" data-count="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293A1 1 0 0 0 5.414 17H19M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM9 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                    </svg>
+                </a>
+                <a href="#" data-count="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+        
+        <nav class="nav-categories">
+            <ul>
+                <li><a href="index.html"><img src="imgs/menu-inicio.svg?v=1" alt=""> <span>Inicio</span></a></li>
+                <li><a href="#"><img src="imgs/menu-productos.svg?v=1" alt=""> <span>Cremas</span></a></li>
+                <li><a href="#"><img src="imgs/menu-productos.svg" alt=""> <span>Jarabes</span></a></li>
+                <li><a href="#"><img src="imgs/menu-productos.svg?v=1" alt=""> <span>Leche Condensada</span></a></li>
+                <li><a href="#"><img src="imgs/menu-productos.svg?v=1" alt=""> <span>Mermeladas</span></a></li>
+                <li><a href="#"><img src="imgs/menu-recetas.svg?v=1" alt=""> <span>Recetas</span></a></li>
+                <li><a href="#"><img src="imgs/menu-contacto.svg?v=1" alt=""> <span>Contacto</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="confirmation-hero-simple">
+        <div class="confirmation-hero-content">
+            <h2>¡Pedido Confirmado!</h2>
+        </div>
+    </section>
+
+    <section class="confirmation-section">
+        <div class="confirmation-container">
+            <div class="confirmation-content">
+                <div class="success-animation">
+                    <div class="checkmark-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+                
+                <div class="confirmation-message">
+                    <h1>¡Tu pedido se realizó con éxito!</h1>
+                    <p class="main-message">En breves momentos recibirás un correo electrónico con todos los detalles de tu pedido.</p>
+                    
+                    <div class="order-details">
+                        <div class="detail-card">
+                            <i class="fas fa-receipt"></i>
+                            <div class="detail-info">
+                                <h3>Número de Pedido</h3>
+                                <p id="order-number">DUN-12345678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div class="detail-info">
+                                <h3>Total Pagado</h3>
+                                <p id="order-total">$0.00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <i class="fas fa-credit-card"></i>
+                            <div class="detail-info">
+                                <h3>Método de Pago</h3>
+                                <p id="payment-method">Tarjeta de Crédito</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <i class="fas fa-truck"></i>
+                            <div class="detail-info">
+                                <h3>Dirección de Entrega</h3>
+                                <p id="delivery-address">Dirección no especificada</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <i class="fas fa-envelope"></i>
+                            <div class="detail-info">
+                                <h3>Email de Confirmación</h3>
+                                <p id="customer-email">No especificado</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3><i class="fas fa-info-circle"></i> ¿Qué sigue?</h3>
+                        <ul>
+                            <li><i class="fas fa-envelope-open"></i> Revisa tu correo electrónico para la confirmación</li>
+                            <li><i class="fas fa-box"></i> Prepararemos tu pedido en las próximas 24 horas</li>
+                            <li><i class="fas fa-shipping-fast"></i> Te notificaremos cuando esté en camino</li>
+                            <li><i class="fas fa-home"></i> Recibirás tu pedido en 2-3 días hábiles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="confirmation-actions">
+                        <button class="btn-primary" onclick="window.location.href='index.html'">
+                            <i class="fas fa-shopping-bag"></i>
+                            Continuar Comprando
+                        </button>
+                        <button class="btn-secondary" onclick="window.print()">
+                            <i class="fas fa-print"></i>
+                            Imprimir Confirmación
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Dunedin</h4>
+                <ul>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#careers">Trabaja con Nosotros</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#leches">Leches Condensadas</a></li>
+                    <li><a href="#cremas">Cremas</a></li>
+                    <li><a href="#mermeladas">Mermeladas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#"><img src="imgs/tiktok-icon.svg" alt="TikTok"></a>
+                    <a href="#"><img src="imgs/x-icon.svg" alt="X"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/confirmation.js"></script>
+</body>
+</html> 

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Pedido - Dunedin</title>
+    <style>
+        /* Reset y estilos base */
+        body, table, td, p, h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: system-ui, sans-serif, Arial;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .order-items {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .totals {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .status-badge {
+            background-color: #27ae60;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1 style="font-size: 2.2rem; margin-bottom: 10px;">¡Gracias por tu pedido!</h1>
+            <h2 style="font-size: 1.2rem; opacity: 0.9;">Dunedin - Productos para Repostería</h2>
+            <div class="status-badge">✓ Pedido Confirmado</div>
+        </div>
+        
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="content">
+            <!-- Mensaje de bienvenida -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 18px; color: #2c3e50;">
+                    Hola <strong>{{customer_name}}</strong>, hemos recibido tu pedido y ya estamos trabajando en él.
+                </p>
+                <p style="color: #7f8c8d; margin-top: 10px;">
+                    Te enviaremos actualizaciones sobre el estado de tu pedido a este email.
+                </p>
+            </div>
+            
+            <!-- DETALLES DEL PEDIDO -->
+            <div class="section">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">
+                    <span class="icon">📋</span>Detalles del Pedido
+                </h3>
+                <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Número de Pedido:</strong></td>
+                        <td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right; color: #27ae60; font-weight: bold;">{{order_number}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Fecha:</strong></td>
+                        <td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">{{order_date}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Método de Pago:</strong></td>
+                        <td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">{{payment_method}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0;"><strong>Total del Pedido:</strong></td>
+                        <td style="padding: 8px 0; text-align: right; font-size: 18px; color: #27ae60; font-weight: bold;">{{order_total}}</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- INFORMACIÓN DE ENTREGA -->
+            <div class="section">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">
+                    <span class="icon">🚚</span>Información de Entrega
+                </h3>
+                <div style="background-color: white; padding: 15px; border-radius: 5px; border-left: 4px solid #3498db;">
+                    <p style="margin: 5px 0;"><strong>Destinatario:</strong> {{customer_name}}</p>
+                    <p style="margin: 5px 0;"><strong>Dirección:</strong> {{customer_address}}</p>
+                    <p style="margin: 5px 0;"><strong>Ciudad:</strong> {{customer_city}}</p>
+                    <p style="margin: 5px 0;"><strong>Código Postal:</strong> {{customer_postal}}</p>
+                    <p style="margin: 5px 0;"><strong>Teléfono:</strong> {{customer_phone}}</p>
+                </div>
+                <p style="margin-top: 15px; color: #7f8c8d; font-size: 14px;">
+                    <span class="icon">⏱️</span>Tiempo estimado de entrega: 2-4 días hábiles
+                </p>
+            </div>
+            
+            <!-- PRODUCTOS PEDIDOS -->
+            <div class="section">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">
+                    <span class="icon">🛍️</span>Productos Pedidos
+                </h3>
+                <div class="order-items">
+                    <div style="font-family: monospace; font-size: 14px; white-space: pre-wrap; line-height: 1.4;">{{order_items}}</div>
+                </div>
+                
+                <div class="totals">
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 5px 0;"><strong>Subtotal:</strong></td>
+                            <td style="padding: 5px 0; text-align: right;">${{subtotal}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 0;"><strong>Envío:</strong></td>
+                            <td style="padding: 5px 0; text-align: right;">${{shipping}}</td>
+                        </tr>
+                        <tr style="border-top: 2px solid #27ae60;">
+                            <td style="padding: 10px 0; font-size: 18px;"><strong>Total:</strong></td>
+                            <td style="padding: 10px 0; text-align: right; font-size: 18px; color: #27ae60; font-weight: bold;">{{order_total}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- PRÓXIMOS PASOS -->
+            <div class="section">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">
+                    <span class="icon">📅</span>¿Qué sigue ahora?
+                </h3>
+                <div style="background-color: white; padding: 15px; border-radius: 5px;">
+                    <ol style="margin: 0; padding-left: 20px; color: #555;">
+                        <li style="margin-bottom: 8px;">Preparamos tu pedido con mucho cuidado</li>
+                        <li style="margin-bottom: 8px;">Te enviamos un email cuando esté listo para envío</li>
+                        <li style="margin-bottom: 8px;">Nuestro repartidor te contacta para coordinar la entrega</li>
+                        <li style="margin-bottom: 8px;">¡Recibes tus productos Dunedin!</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- SOPORTE -->
+            <div class="section" style="background-color: #e3f2fd;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">
+                    <span class="icon">📞</span>¿Necesitas ayuda?
+                </h3>
+                <p style="margin-bottom: 10px;">
+                    Si tienes alguna pregunta sobre tu pedido, no dudes en contactarnos:
+                </p>
+                <table role="presentation" style="width: 100%;">
+                    <tr>
+                        <td style="padding: 5px 0;"><strong>📧 Email:</strong></td>
+                        <td style="padding: 5px 0;">{{support_email}}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px 0;"><strong>📱 WhatsApp:</strong></td>
+                        <td style="padding: 5px 0;">+54 11 1234-5678</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px 0;"><strong>🕐 Horarios:</strong></td>
+                        <td style="padding: 5px 0;">Lunes a Viernes: 9:00 - 18:00</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- CALL TO ACTION -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="http://localhost:8000" 
+                   style="background: linear-gradient(135deg, #27ae60, #2ecc71); 
+                          color: white; 
+                          padding: 15px 30px; 
+                          text-decoration: none; 
+                          border-radius: 25px; 
+                          font-weight: bold; 
+                          display: inline-block;
+                          transition: transform 0.2s;">
+                    🛍️ Seguir Comprando
+                </a>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            <p style="margin-bottom: 10px;">
+                <strong>¡Gracias por elegir {{company_name}}!</strong>
+            </p>
+            <p style="opacity: 0.8; font-size: 13px;">
+                Este email fue enviado porque realizaste una compra en nuestro sitio web.
+            </p>
+            <p style="opacity: 0.8; font-size: 13px; margin-top: 10px;">
+                Dunedin © 2024 - Productos para Repostería de Calidad
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

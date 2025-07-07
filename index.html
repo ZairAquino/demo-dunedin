@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Dunedin - Productos para Repostería</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header>
+        <nav class="nav-main">
+            <div class="logo">
+                <img src="imgs/dunedin-logo-t.png" alt="Dunedin Logo" width="200" height="120">
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" name="search" autocomplete="search" placeholder="Buscar productos...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-icons">
+                <a href="#" class="wishlist"><i class="fas fa-heart"></i></a>
+                <a href="carrito.html" class="cart" data-count="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293A1 1 0 0 0 5.414 17H19M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM9 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                    </svg>
+                </a>
+                <a href="#" class="user"><i class="fas fa-user"></i></a>
+            </div>
+        </nav>
+        <nav class="nav-categories">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i><img src="imgs/menu-inicio.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i><img src="imgs/menu-productos.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                        <span>Cremas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i><img src="imgs/menu-productos.svg" alt="" style="height: 30px; width: 30px;"></i>
+                        <span>Jarabes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i><img src="imgs/menu-productos.svg" alt="" style="height: 30px; width: 30px;"></i>
+                        <span>Leche Condensada</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i><img src="imgs/menu-productos.svg" alt="" style="height: 30px; width: 30px;"></i>
+                        <span>Mermeladas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i><img src="imgs/menu-recetas.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                        <span>Recetas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i><img src="imgs/menu-contacto.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                        <span>Contacto</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop id="hero-video" playsinline preload="metadata">
+            <source src="video/reposteria.mp4" type="video/mp4">
+            <!-- Fallback: Si no se puede cargar el video, mostrará el background CSS -->
+            Tu navegador no soporta video HTML5.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Productos de Alta Calidad para Repostería</h2>
+            <p>Descubre nuestra línea de productos para tus creaciones</p>
+            <a href="#" class="cta-button">Comprar ahora</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <h2>Productos Destacados</h2>
+        <div class="product-grid">
+            <!-- Product Cards will be dynamically loaded -->
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Categorías Populares</h2>
+        <div class="category-grid">
+            <!-- Category Cards will be dynamically loaded -->
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h3>Suscríbete a nuestro boletín</h3>
+        <p>Recibe nuestras mejores recetas y consejos de repostería</p>
+        <form class="newsletter-form">
+            <input type="email" id="newsletter-email" name="email" autocomplete="email" placeholder="Tu correo electrónico">
+            <button type="submit">Suscribirse</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#">Cremas</a></li>
+                    <li><a href="#">Jarabes</a></li>
+                    <li><a href="#">Leche Condensada</a></li>
+                    <li><a href="#">Mermeladas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Sobre Dunedin</a></li>
+                    <li><a href="#">Recetas</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100026841924629" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/dunedinoficial" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/DunedinOficial" target="_blank"><img src="imgs/x-icon.svg?v=1" alt="X (Twitter)" style="height: 15px; width: 15px;"></a>
+                    <a href="https://www.tiktok.com/@dunedin_oficial" target="_blank"><img src="imgs/tiktok-icon.svg?v=1" alt="TikTok" style="height: 20px; width: 20px;"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=2025"></script>
+</body>
+</html>
