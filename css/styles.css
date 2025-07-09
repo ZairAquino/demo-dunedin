@@ -316,7 +316,6 @@ header.transparent .hamburger-menu {
     background-color: #2c3e50; /* Fallback color elegante */
     margin-top: 0;
 }
-
 /* Video de fondo principal */
 #hero-video {
     position: absolute;
@@ -328,7 +327,6 @@ header.transparent .hamburger-menu {
     z-index: 1;
     opacity: 1;
 }
-
 /* Overlay mejorado para el video */
 .hero-overlay {
     position: absolute;
@@ -344,7 +342,6 @@ header.transparent .hamburger-menu {
     );
     z-index: 2;
 }
-
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
@@ -352,6 +349,29 @@ header.transparent .hamburger-menu {
     position: relative;
     z-index: 3;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* El resto del contenido debe empezar después del hero */
+.featured-products {
+    margin-top: 100vh !important;
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+.categories {
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+.newsletter {
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+footer {
+    position: relative;
+    z-index: 2;
+    background: white;
 }
 
 .hero h2 {
@@ -2168,7 +2188,88 @@ header.transparent .mobile-search-btn {
 }
 
 @media (min-width: 769px) {
-    .mobile-search-btn, .mobile-search-bar {
+    .hamburger-menu,
+    nav .hamburger-menu,
+    .mobile-search-btn,
+    nav .mobile-search-btn,
+    .mobile-search-bar,
+    header .mobile-search-bar {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+    }
+    .mobile-menu {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        height: 0 !important;
+        width: 0 !important;
+    }
+}
+
+/* --- SOLO EN MÓVILES: margen para hero fijo --- */
+@media (max-width: 768px) {
+    .hero {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        z-index: 1;
+    }
+    #hero-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: 1;
+    }
+    .hero-overlay {
+        width: 100vw;
+        height: 100vh;
+    }
+    .featured-products {
+        margin-top: 100vh !important;
+        position: relative;
+        z-index: 2;
+        background: white;
+    }
+    .categories {
+        position: relative;
+        z-index: 2;
+        background: white;
+    }
+    .newsletter {
+        position: relative;
+        z-index: 2;
+        background: white;
+    }
+    footer {
+        position: relative;
+        z-index: 2;
+        background: white;
+    }
+}
+
+@media (min-width: 769px) {
+    .featured-products {
+        margin-top: 0 !important;
+        background: white;
+    }
+    .categories,
+    .newsletter,
+    footer {
+        background: white;
     }
 }
