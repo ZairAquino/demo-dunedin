@@ -15,7 +15,7 @@
     <!-- Header con navegación -->
     <header>
         <nav class="nav-main">
-            <div class="logo">
+                        <div class="logo">
                 <img src="imgs/dunedin-logo-t.png" alt="Dunedin Logo" width="200" height="120">
             </div>
             <div class="search-bar">
@@ -30,6 +30,15 @@
                     </svg>
                 </a>
                 <a href="#" class="user"><i class="fas fa-user"></i></a>
+                <!-- Botón lupa solo móvil -->
+                <button class="mobile-search-btn" id="mobile-search-btn" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="hamburger-menu" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
         <nav class="nav-categories">
@@ -78,7 +87,70 @@
                 </li>
             </ul>
         </nav>
+        <!-- Barra de búsqueda móvil -->
+        <div class="mobile-search-bar" id="mobile-search-bar">
+            <input type="text" id="mobile-search-input" placeholder="Buscar productos..." autocomplete="off">
+            <button class="close-mobile-search" id="close-mobile-search" aria-label="Cerrar búsqueda"><i class="fas fa-times"></i></button>
+        </div>
     </header>
+
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <h3>Menú</h3>
+                <button class="close-menu" id="close-menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i><img src="imgs/menu-inicio.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i><img src="imgs/menu-productos.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                            <span>Cremas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i><img src="imgs/menu-productos.svg" alt="" style="height: 30px; width: 30px;"></i>
+                            <span>Jarabes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i><img src="imgs/menu-productos.svg" alt="" style="height: 30px; width: 30px;"></i>
+                            <span>Leche Condensada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i><img src="imgs/menu-productos.svg" alt="" style="height: 30px; width: 30px;"></i>
+                            <span>Mermeladas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i><img src="imgs/menu-recetas.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                            <span>Recetas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i><img src="imgs/menu-contacto.svg?v=1" alt="" style="height: 30px; width: 30px;"></i>
+                            <span>Contacto</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">

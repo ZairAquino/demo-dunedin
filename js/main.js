@@ -342,11 +342,49 @@ function handleHeaderTransparency() {
     }
 }
 
+// --- Búsqueda móvil ---
+function initMobileSearchBar() {
+    const searchBtn = document.getElementById('mobile-search-btn');
+    const searchBar = document.getElementById('mobile-search-bar');
+    const searchInput = document.getElementById('mobile-search-input');
+    const closeBtn = document.getElementById('close-mobile-search');
+
+    if (searchBtn && searchBar && searchInput && closeBtn) {
+        // Mostrar barra
+        searchBtn.addEventListener('click', function() {
+            searchBar.classList.add('active');
+            setTimeout(() => searchInput.focus(), 100);
+        });
+        // Cerrar barra
+        closeBtn.addEventListener('click', function() {
+            searchBar.classList.remove('active');
+            searchInput.value = '';
+        });
+        // Cerrar con Escape
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchBar.classList.remove('active');
+                searchInput.value = '';
+            }
+        });
+        // Cerrar al perder foco (opcional, solo si no hay texto)
+        searchInput.addEventListener('blur', function() {
+            setTimeout(() => {
+                if (!searchInput.value) searchBar.classList.remove('active');
+            }, 150);
+        });
+    }
+}
+
+// --- Fin búsqueda móvil ---
+
 document.addEventListener('DOMContentLoaded', () => {
     loadFeaturedProducts();
     loadCategories();
     initHeroVideo();
     updateCartIcon(); // Actualizar contador del carrito al cargar la página
+    initMobileMenu(); // Inicializar menú móvil
+    initMobileSearchBar(); // Inicializar barra de búsqueda móvil
     
     // Inicializar transparencia del header
     handleHeaderTransparency();
@@ -394,6 +432,47 @@ function handleSearch(event) {
             card.style.display = 'none';
         }
     });
+}
+
+// Menú hamburguesa móvil
+function initMobileMenu() {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+    
+    if (hamburgerMenu && mobileMenu && closeMenu) {
+        // Abrir menú
+        hamburgerMenu.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            hamburgerMenu.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevenir scroll
+        });
+        
+        // Cerrar menú
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            hamburgerMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Restaurar scroll
+        });
+        
+        // Cerrar al hacer clic fuera del menú
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Cerrar con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 }
 
 // Agregar event listener para la búsqueda
