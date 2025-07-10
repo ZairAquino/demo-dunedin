@@ -404,57 +404,115 @@ function closeConfirmation() {
 // Mostrar notificación
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    
-    // Colores según el tipo
+    notification.className = `notification toast-notification ${type}`;
+    notification.textContent = message;
     const colors = {
         success: 'linear-gradient(45deg, #27ae60, #2ecc71)',
         error: 'linear-gradient(45deg, #e74c3c, #c0392b)',
         warning: 'linear-gradient(45deg, #f39c12, #e67e22)',
         info: 'linear-gradient(45deg, #3498db, #2980b9)'
     };
-    
-    notification.innerHTML = `
-        <span>${message}</span>
-        <button onclick="this.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: 10px;">×</button>
-    `;
-    
     notification.style.cssText = `
         position: fixed;
-        top: 20px;
-        right: 20px;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%) scale(0.95);
         background: ${colors[type] || colors.success};
         color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        padding: 0.75rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(46, 204, 113, 0.18);
         z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        max-width: 350px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        animation: toastIn 0.35s cubic-bezier(.4,0,.2,1);
+        font-weight: 500;
+        font-size: 1rem;
+        max-width: 90vw;
+        min-width: 180px;
+        text-align: center;
+        opacity: 0.98;
+        pointer-events: none;
     `;
-    
     document.body.appendChild(notification);
-    
-    // Animación de entrada
     setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Auto-remove después de 5 segundos
-    setTimeout(() => {
-        if (notification.parentElement) {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.remove();
+        notification.style.animation = 'toastOut 0.3s cubic-bezier(.4,0,.2,1)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 2200);
+    // Agregar estilos para animaciones y posición responsive solo una vez
+    if (!document.querySelector('#toast-notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'toast-notification-styles';
+        style.textContent = `
+            @keyframes toastIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(40px) scale(0.95);
                 }
-            }, 300);
-        }
-    }, 5000);
+                to {
+                    opacity: 0.98;
+                    transform: translateX(-50%) translateY(0) scale(1);
+                }
+            }
+            @keyframes toastOut {
+                from {
+                    opacity: 0.98;
+                    transform: translateX(-50%) translateY(0) scale(1);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(40px) scale(0.95);
+                }
+            }
+            .toast-notification {
+                left: 50% !important;
+                right: auto !important;
+                top: auto !important;
+                bottom: 40px !important;
+                transform: translateX(-50%) !important;
+                pointer-events: none !important;
+            }
+            @media (min-width: 601px) {
+                .toast-notification {
+                    left: auto !important;
+                    right: 40px !important;
+                    bottom: 40px !important;
+                    top: auto !important;
+                    transform: none !important;
+                }
+                @keyframes toastIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px) scale(0.95);
+                    }
+                    to {
+                        opacity: 0.98;
+                        transform: translateY(0) scale(1);
+                    }
+                }
+                @keyframes toastOut {
+                    from {
+                        opacity: 0.98;
+                        transform: translateY(0) scale(1);
+                    }
+                    to {
+                        opacity: 0;
+                        transform: translateY(40px) scale(0.95);
+                    }
+                }
+            }
+            @media (max-width: 600px) {
+                .toast-notification {
+                    font-size: 0.95rem !important;
+                    padding: 0.7rem 1.1rem !important;
+                    min-width: 120px !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 }
 
 // Función para redirigir a la página de confirmación

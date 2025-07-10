@@ -156,35 +156,37 @@ function updateCartIcon() {
 
 function showModernNotification(message) {
     const notification = document.createElement('div');
-    notification.className = 'notification';
+    notification.className = 'notification toast-notification';
     notification.textContent = message;
     notification.style.cssText = `
         position: fixed;
-        top: 20px;
-        right: 20px;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%) scale(0.95);
         background: linear-gradient(45deg, #27ae60, #2ecc71);
         color: white;
         padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 3px 12px rgba(46, 204, 113, 0.4);
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(46, 204, 113, 0.18);
         z-index: 10000;
-        animation: slideInRight 0.3s ease-out;
+        animation: toastIn 0.35s cubic-bezier(.4,0,.2,1);
         font-weight: 500;
-        font-size: 0.9rem;
-        max-width: 280px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 1rem;
+        max-width: 90vw;
+        min-width: 180px;
+        text-align: center;
+        opacity: 0.98;
+        pointer-events: none;
     `;
-    
     document.body.appendChild(notification);
-    
     setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease-out';
+        notification.style.animation = 'toastOut 0.3s cubic-bezier(.4,0,.2,1)';
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.parentNode.removeChild(notification);
             }
         }, 300);
-    }, 3000);
+    }, 2200);
 }
 
 // Estilos para las animaciones de notificación
@@ -192,25 +194,68 @@ if (!document.querySelector('#notification-styles')) {
     const notificationStyles = document.createElement('style');
     notificationStyles.id = 'notification-styles';
     notificationStyles.textContent = `
-        @keyframes slideInRight {
+        @keyframes toastIn {
             from {
-                transform: translateX(100%);
                 opacity: 0;
+                transform: translateX(-50%) translateY(40px) scale(0.95);
             }
             to {
-                transform: translateX(0);
-                opacity: 1;
+                opacity: 0.98;
+                transform: translateX(-50%) translateY(0) scale(1);
             }
         }
-        
-        @keyframes slideOutRight {
+        @keyframes toastOut {
             from {
-                transform: translateX(0);
-                opacity: 1;
+                opacity: 0.98;
+                transform: translateX(-50%) translateY(0) scale(1);
             }
             to {
-                transform: translateX(100%);
                 opacity: 0;
+                transform: translateX(-50%) translateY(40px) scale(0.95);
+            }
+        }
+        .toast-notification {
+            left: 50% !important;
+            right: auto !important;
+            top: auto !important;
+            bottom: 40px !important;
+            transform: translateX(-50%) !important;
+            pointer-events: none !important;
+        }
+        @media (min-width: 601px) {
+            .toast-notification {
+                left: auto !important;
+                right: 40px !important;
+                bottom: 40px !important;
+                top: auto !important;
+                transform: none !important;
+            }
+            @keyframes toastIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(40px) scale(0.95);
+                }
+                to {
+                    opacity: 0.98;
+                    transform: translateY(0) scale(1);
+                }
+            }
+            @keyframes toastOut {
+                from {
+                    opacity: 0.98;
+                    transform: translateY(0) scale(1);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateY(40px) scale(0.95);
+                }
+            }
+        }
+        @media (max-width: 600px) {
+            .toast-notification {
+                font-size: 0.95rem !important;
+                padding: 0.7rem 1.1rem !important;
+                min-width: 120px !important;
             }
         }
     `;
